@@ -25,3 +25,22 @@
 @lighten-surface-3: calc( 3 * var( --delta-lightness-surface-base ) );
 @lighten-surface-4: calc( 4 * var( --delta-lightness-surface-base ) );
 @lighten-surface-5: calc( 5 * var( --delta-lightness-surface-base ) );
+
+	@ebsa-color-surface-0: ~'oklch( var( --color-surface-0-oklch__l ) var( --color-surface-0-oklch__c ) var( --color-surface-0-oklch__h ) )';
+	@ebsa-color-surface-0--hover: ~'oklch( from var( --color-surface-0 ) calc( l + @{hover-state} ) c h )';
+	@ebsa-color-surface-0--active: ~'oklch( from var( --color-surface-0 ) calc( l + @{active-state} ) c h )';
+	@ebsa-color-surface-1: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-1} ) c h )';
+	@ebsa-color-surface-1--hover: ~'oklch( from var( --color-surface-1 ) calc( l + @{hover-state} ) c h )';
+	@ebsa-color-surface-1--active: ~'oklch( from var( --color-surface-1 ) calc( l + @{active-state} ) c h )';
+	@ebsa-color-surface-2: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-2} ) c h )';
+	@ebsa-color-surface-2--hover: ~'oklch( from var( --color-surface-2 ) calc( l + @{hover-state} ) c h )';
+	@ebsa-color-surface-2--active: ~'oklch( from var( --color-surface-2 ) calc( l + @{active-state} ) c h )';
+	@ebsa-color-surface-3: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-3} ) c h )';
+	@ebsa-color-surface-3--hover: ~'oklch( from var( --color-surface-3 ) calc( l + @{hover-state} ) c h )';
+	@ebsa-color-surface-3--active: ~'oklch( from var( --color-surface-3 ) calc( l + @{active-state} ) c h )';
+	@ebsa-color-surface-4: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-4} ) c h )';
+	@ebsa-color-surface-4--hover: ~'oklch( from var( --color-surface-4 ) calc( l + @{hover-state} ) c h )';
+	@ebsa-color-surface-4--active: ~'oklch( from var( --color-surface-4 ) calc( l + @{active-state} ) c h )';
+	@ebsa-color-surface-5: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-5} ) c h )';
+	@ebsa-color-surface-5--hover: ~'oklch( from var( --color-surface-5 ) calc( l + @{hover-state} ) c h )';
+	@ebsa-color-surface-5--active: ~'oklch( from var( --color-surface-5 ) calc( l + @{active-state} ) c h )';
