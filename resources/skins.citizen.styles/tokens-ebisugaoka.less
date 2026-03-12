@@ -9,7 +9,8 @@
     --color-neutral-base: 0 0 0;
   }
 
-  --border-color-table: ~"color-mix(in oklch var( --color-surface-0 ) var( --border-color-table-primary ), oklch( var( --color-neutral-base ) ) var( --border-color-table-secondary ) )";
+	--color-mix-setup: ~'color-mix( in oklch, var( --color-progressive ) 6%, var( --color-neutral-base ) )';
+  --border-color-table: ~'color-mix(in oklch var( --color-surface-0 ) var( --border-color-table-primary ), oklch( var( --color-neutral-base ) ) var( --border-color-table-secondary ) )';
   --border-divider: var(--border-width-base) var(--border-style-base)
     var(--border-color-divider);
   --border-color-table-primary: 65%;
