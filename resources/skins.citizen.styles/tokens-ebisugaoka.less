@@ -9,6 +9,19 @@
     --color-neutral-base: 0 0 0;
   }
 
+	/* Convert hover & active states to relative colors */
+	--color-base--hover: ~'oklch( from var( --color-base ) calc( l + var( --color-state-hover ) ) c h )';
+	--color-progressive--hover: ~'oklch( from var( --color-progressive ) calc( l + var( --color-state-hover ) ) c h )';
+	--color-progressive--active: ~'oklch( from var( --color-progressive ) calc( l + var( --color-state-active ) ) c h )';
+
+	/* Icon opacity */
+	--opacity-icon-base: 1;
+	--opacity-icon-base--hover: 0.75;
+	--opacity-icon-base--selected: 1;
+	--opacity-icon-base--disabled: 0.5;
+	--opacity-icon-placeholder: 0.5;
+	--opacity-icon-subtle: 0.675;
+
 	--color-mix-setup: ~'color-mix( in oklch, var( --color-progressive ) 6%, var( --color-neutral-base ) )';
   --border-color-table: ~'color-mix(in oklch var( --color-surface-0 ) var( --border-color-table-primary ), oklch( var( --color-neutral-base ) ) var( --border-color-table-secondary ) )';
   --border-divider: var(--border-width-base) var(--border-style-base)
@@ -64,4 +77,10 @@
   --color-surface-3--active: var(--ebsa-color-surface-3--active);
   --color-surface-4--active: var(--ebsa-color-surface-4--active);
   --color-surface-5--active: var(--ebsa-color-surface-5--active);
+
+/* Tokens disabled by Citizen, reenabled experimentally */
+	--border-color-interactive--hover: var( --border-color-progressive--hover );
+	--border-color-interactive--active: var( --border-color-progressive--active );
+	--border-color-error--active: var( --color-error--active );
+	
 }
