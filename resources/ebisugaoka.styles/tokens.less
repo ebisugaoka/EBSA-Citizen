@@ -1,3 +1,7 @@
 :root {
+	--border-color-table: color-mix(in oklch var( --color-surface-0 ) 65%, var( --color-neutral-base ) 35%);
   --border-divider: var( --border-width-base ) solid var( --border-color-divider );
 }
+
+@theme-dark: ~':root.skin-theme-clientpref-night, :root.prefers-color-scheme-dark.skin-theme-clientpref-os';
+@theme-light: ~':root.skin-theme-clientpref-day, :root.prefers-color-scheme-light.skin-theme-clientpref-os';
