@@ -1,46 +1,45 @@
 :root {
-	--border-color-table: ~'color-mix(in oklch var( --color-surface-0 ) var( --border-color-table-primary ), oklch( var( --color-neutral-base ) ) var( --border-color-table-secondary ) )';
-	--border-divider: var( --border-width-base ) var( --border-style-base ) var( --border-color-divider );
-	--border-color-table-primary: 65%;
-	--border-color-table-secondary: 35%;
+  &.skin-theme-clientpref-night,
+  &.prefers-color-scheme-dark.skin-theme-clientpref-os {
+    --color-neutral-base: 1 0 0;
+  }
+
+  &.skin-theme-clientpref-day,
+  &.prefers-color-scheme-light.skin-theme-clientpref-os {
+    --color-neutral-base: 0 0 0;
+  }
+
+  --border-color-table: ~"color-mix(in oklch var( --color-surface-0 ) var( --border-color-table-primary ), oklch( var( --color-neutral-base ) ) var( --border-color-table-secondary ) )";
+  --border-divider: var(--border-width-base) var(--border-style-base)
+    var(--border-color-divider);
+  --border-color-table-primary: 65%;
+  --border-color-table-secondary: 35%;
+  --color-state-hover: var(--delta-lightness-hover-state);
+  --color-state-active: var(--delta-lightness-active-state);
+  --color-state-visited: var(--delta-lightness-visited-state);
+
+  --color-surface-lighten-base: var(--delta-lightness-surface-base);
+  --color-surface-lighten-1: calc(1 * var(--delta-lightness-surface-base));
+  --color-surface-lighten-2: calc(2 * var(--delta-lightness-surface-base));
+  --color-surface-lighten-3: calc(3 * var(--delta-lightness-surface-base));
+  --color-surface-lighten-4: calc(4 * var(--delta-lightness-surface-base));
+  --color-surface-lighten-5: calc(5 * var(--delta-lightness-surface-base));
+
+  --ebsa-color-surface-0--hover: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-state-hover ) c h )";
+  --ebsa-color-surface-0--active: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-state-active ) ) c h )";
+  --ebsa-color-surface-1: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-surface-lighten-1 ) ) calc( c * 1.5 ) h )";
+  --ebsa-color-surface-1--hover: ~"oklch( from var( --color-surface-1 ) calc( l + var( --color-state-hover ) ) c h )";
+  --ebsa-color-surface-1--active: ~"oklch( from var( --color-surface-1 ) calc( l + var( --color-state-active ) ) c h )";
+  --ebsa-color-surface-2: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-surface-lighten-2 ) ) calc( c * 2 ) h )";
+  --ebsa-color-surface-2--hover: ~"oklch( from var( --color-surface-2 ) calc( l + var( --color-state-hover ) ) c h )";
+  --ebsa-color-surface-2--active: ~"oklch( from var( --color-surface-2 ) calc( l + var( --color-state-active ) ) c h )";
+  --ebsa-color-surface-3: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-surface-lighten-3 ) ) calc( c * 3 ) h )";
+  --ebsa-color-surface-3--hover: ~"oklch( from var( --color-surface-3 ) calc( l + var( --color-state-hover ) ) c h )";
+  --ebsa-color-surface-3--active: ~"oklch( from var( --color-surface-3 ) calc( l + var( --color-state-active ) ) c h )";
+  --ebsa-color-surface-4: ~"oklch( from var( --color-surface-0 ) calc( l +  var( --color-surface-lighten-4 ) ) calc( c * 4 ) h )";
+  --ebsa-color-surface-4--hover: ~"oklch( from var( --color-surface-4 ) calc( l + var( --color-state-hover ) ) c h )";
+  --ebsa-color-surface-4--active: ~"oklch( from var( --color-surface-4 ) calc( l + var( --color-state-active ) ) c h )";
+  --ebsa-color-surface-5: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-surface-lighten-5 ) ) calc( c * 5 ) h )";
+  --ebsa-color-surface-5--hover: ~"oklch( from var( --color-surface-5 ) calc( l + var( --color-state-hover ) ) c h )";
+  --ebsa-color-surface-5--active: ~"oklch( from var( --color-surface-5 ) calc( l + var( --color-state-active ) ) c h )";
 }
-
-:root.skin-theme-clientpref-night, 
-:root.prefers-color-scheme-dark.skin-theme-clientpref-os {
-	--color-neutral-base: 1 0 0;
-}
-
-:root.skin-theme-clientpref-day, 
-:root.prefers-color-scheme-light.skin-theme-clientpref-os {
-	--color-neutral-base: 0 0 0;
-}
-
-@hover-state: var( --delta-lightness-hover-state );
-@active-state: var( --delta-lightness-active-state );
-@visited-state: var( --delta-lightness-visited-state );
-
-@lighten-surface-base: var( --delta-lightness-surface-base );
-@lighten-surface-1: calc( 1 * var( --delta-lightness-surface-base ) );
-@lighten-surface-2: calc( 2 * var( --delta-lightness-surface-base ) );
-@lighten-surface-3: calc( 3 * var( --delta-lightness-surface-base ) );
-@lighten-surface-4: calc( 4 * var( --delta-lightness-surface-base ) );
-@lighten-surface-5: calc( 5 * var( --delta-lightness-surface-base ) );
-
-	@ebsa-color-surface-0: ~'oklch( var( --color-surface-0-oklch__l ) var( --color-surface-0-oklch__c ) var( --color-surface-0-oklch__h ) )';
-	@ebsa-color-surface-0--hover: ~'oklch( from var( --color-surface-0 ) calc( l + @{hover-state} ) c h )';
-	@ebsa-color-surface-0--active: ~'oklch( from var( --color-surface-0 ) calc( l + @{active-state} ) c h )';
-	@ebsa-color-surface-1: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-1} ) calc( c * 1.5 ) h )';
-	@ebsa-color-surface-1--hover: ~'oklch( from var( --color-surface-1 ) calc( l + @{hover-state} ) c h )';
-	@ebsa-color-surface-1--active: ~'oklch( from var( --color-surface-1 ) calc( l + @{active-state} ) c h )';
-	@ebsa-color-surface-2: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-2} ) calc( c * 2 ) h )';
-	@ebsa-color-surface-2--hover: ~'oklch( from var( --color-surface-2 ) calc( l + @{hover-state} ) c h )';
-	@ebsa-color-surface-2--active: ~'oklch( from var( --color-surface-2 ) calc( l + @{active-state} ) c h )';
-	@ebsa-color-surface-3: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-3} ) calc( c * 3 ) h )';
-	@ebsa-color-surface-3--hover: ~'oklch( from var( --color-surface-3 ) calc( l + @{hover-state} ) c h )';
-	@ebsa-color-surface-3--active: ~'oklch( from var( --color-surface-3 ) calc( l + @{active-state} ) c h )';
-	@ebsa-color-surface-4: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-4} ) calc( c * 4 ) h )';
-	@ebsa-color-surface-4--hover: ~'oklch( from var( --color-surface-4 ) calc( l + @{hover-state} ) c h )';
-	@ebsa-color-surface-4--active: ~'oklch( from var( --color-surface-4 ) calc( l + @{active-state} ) c h )';
-	@ebsa-color-surface-5: ~'oklch( from var( --color-surface-0 ) calc( l + @{lighten-surface-5} ) calc( c * 5 ) h )';
-	@ebsa-color-surface-5--hover: ~'oklch( from var( --color-surface-5 ) calc( l + @{hover-state} ) c h )';
-	@ebsa-color-surface-5--active: ~'oklch( from var( --color-surface-5 ) calc( l + @{active-state} ) c h )';
