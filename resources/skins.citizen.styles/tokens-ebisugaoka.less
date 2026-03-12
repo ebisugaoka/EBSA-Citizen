@@ -3,9 +3,10 @@
   --ebsa-color-neutral-base-light: 1 0 0;
   --delta-lightness-hover-state: calc( var( --delta-lightness-state-base ) * 1 );
   --delta-lightness-active-state: calc( var( --delta-lightness-state-base ) * -1 );
-
-		// Hover and active states are calculated by a modifier of the lightness value (e.g. hover: +2%, active: -2%)
-	--delta-lightness-state-base: 4%;
+  --delta-lightness-visited-state: calc( var( --delta-lightness-state-base ) * -2 );
+  --delta-lightness-state-base: 4%; 
+// Hover and active states are calculated by a modifier of the lightness value (e.g. hover: +2%, active: -2%)
+	
 
 	--delta-lightness-surface-base: -2%;
 
@@ -17,12 +18,15 @@
 	// Surface color
 	--color-surface-0-oklch__l: 96%;
 	--color-surface-0-oklch__c: 0.01;
+	--color-surface-0-oklch__h: 262.29;
+
+	--color-base-oklch__h: 262.29;
 	
   &.skin-theme-clientpref-night,
   &.prefers-color-scheme-dark.skin-theme-clientpref-os {
-		--color-destructive: oklch(0.635 0.254 15.458);
-		--color-warning: oklch(0.683 0.129 175.062);
-		--color-success: oklch(0.886 0.17 93.726);
+	--color-destructive: oklch(0.635 0.254 15.458);
+	--color-warning: oklch(0.683 0.129 175.062);
+	--color-success: oklch(0.886 0.17 93.726);
     --ebsa-color-neutral-base: var(--ebsa-color-neutral-base-light);
     --ebsa-color-neutral-base-inverted: var(--ebsa-color-neutral-base-dark);
     --ebsa-color-neutral: ~"oklch( var(--ebsa-color-neutral-base) / 1 )";
