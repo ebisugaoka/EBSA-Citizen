@@ -15,7 +15,13 @@
 	--color-neutral-base: 0 0 0;
 }
 
-@delta-hover: var( --delta-lightness-hover-state );
-@delta-active: var( --delta-lightness-active-state );
-@delta-visited: var( --delta-lightness-visited-state );
-@delta-surface: var( --delta-lightness-surface-base );
+@hover-state: var( --delta-lightness-hover-state );
+@active-state: var( --delta-lightness-active-state );
+@visited-state: var( --delta-lightness-visited-state );
+
+@lighten-surface-base: var( --delta-lightness-surface-base );
+@lighten-surface-1: calc( 1 * var( --delta-lightness-surface-base ) );
+@lighten-surface-2: calc( 2 * var( --delta-lightness-surface-base ) );
+@lighten-surface-3: calc( 3 * var( --delta-lightness-surface-base ) );
+@lighten-surface-4: calc( 4 * var( --delta-lightness-surface-base ) );
+@lighten-surface-5: calc( 5 * var( --delta-lightness-surface-base ) );
