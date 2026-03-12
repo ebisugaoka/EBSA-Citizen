@@ -1,12 +1,21 @@
 :root {
+	--ebsa-color-neutral-base-dark: 0 0 0;
+	--ebsa-color-neutral-base-light: 1 0 0;
+	
   &.skin-theme-clientpref-night,
   &.prefers-color-scheme-dark.skin-theme-clientpref-os {
-    --color-neutral-base: 1 0 0;
-  }
+    --ebsa-color-neutral-base: var( --ebsa-color-neutral-base-light );
+		--ebsa-color-neutral-base-inverted: var( --ebsa-color-neutral-base-dark );
+		--ebsa-color-neutral: ~'oklch( var(--ebsa-color-neutral-base) / 1 )';
+ 		--ebsa-color-neutral-inverted: ~'oklch( var(--ebsa-color-neutral-base-inverted) / 1 )';
+	}
 
   &.skin-theme-clientpref-day,
   &.prefers-color-scheme-light.skin-theme-clientpref-os {
-    --color-neutral-base: 0 0 0;
+    --ebsa-color-neutral-base: var( --ebsa-color-neutral-base-dark );
+		--ebsa-color-neutral-base-inverted: var( --ebsa-color-neutral-base-light );
+		--ebsa-color-neutral: ~'oklch( var( --ebsa-color-neutral-base ) / 1 )';
+ 		--ebsa-color-neutral-inverted: ~'oklch( var( --ebsa-color-neutral-base-inverted ) / 1 )';
   }
 
 	/* Convert hover & active states to relative colors */
@@ -22,6 +31,19 @@
 	--opacity-icon-placeholder: 0.5;
 	--opacity-icon-subtle: 0.675;
 
+	/* Add H for --color-base */
+	--color-base: ~'oklch( var( --color-base-oklch__l ) var( --color-base-oklch__c ) var( --color-base-oklch__h ) )';
+	--color-emphasized: ~'oklch( var( --color-emphasized-oklch__l ) var( --color-emphasized-oklch__c ) var( --color-base-oklch__h ) )';
+	--color-subtle: ~'oklch( var( --color-subtle-oklch__l ) var( --color-subtle-oklch__c ) var( --color-base-oklch__h ) )';
+	--color-placeholder: ~'oklch( var( --color-placeholder-oklch__l ) var( --color-placeholder-oklch__c ) var( --color-base-oklch__h ) )';
+	--color-disabled: ~'oklch( var( --color-disabled-oklch__l ) var( --color-disabled-oklch__c ) var( --color-base-oklch__h ) )';
+
+	/* Semantic token changed */
+	
+	--box-shadow-color-progressive--focus: var( --color-progressive--focus );
+	--box-shadow-color-destructive--focus: var( --color-progressive--focus );
+	--background-color-progressive--focus: var( --color-progressive--focus );
+	
 	--color-mix-setup: ~'color-mix( in oklch, var( --color-progressive ) 6%, var( --color-neutral-base ) )';
   --border-color-table: ~'color-mix(in oklch var( --color-surface-0 ) var( --border-color-table-primary ), oklch( var( --color-neutral-base ) ) var( --border-color-table-secondary ) )';
   --border-divider: var(--border-width-base) var(--border-style-base)
@@ -57,6 +79,8 @@
   --ebsa-color-surface-5--hover: ~"oklch( from var( --color-surface-5 ) calc( l + var( --color-state-hover ) ) c h )";
   --ebsa-color-surface-5--active: ~"oklch( from var( --color-surface-5 ) calc( l + var( --color-state-active ) ) c h )";
 
+	--background-color-backdrop-light: ~'oklch( var( --color-surface-0-oklch__l ) var( --color-surface-0-oklch__c ) var( --color-surface-0-oklch__h ) / var( --backdrop-opacity ) )';
+	
   --color-surface-0: ~"oklch( var( --color-surface-0-oklch__l ) var( --color-surface-0-oklch__c ) var( --color-surface-0-oklch__h ) )";
   --color-surface-1: var(--ebsa-color-surface-1);
   --color-surface-2: var(--ebsa-color-surface-2);
