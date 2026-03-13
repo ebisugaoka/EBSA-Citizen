@@ -1,14 +1,17 @@
-:root {
-  --ebsa-color-neutral-base-dark: 0 0 0;
-  --ebsa-color-neutral-base-light: 1 0 0;
-  --delta-lightness-hover-state: calc( var( --delta-lightness-state-base ) * 1 );
-  --delta-lightness-active-state: calc( var( --delta-lightness-state-base ) * -1 );
+.theme {
+	&-common() {	
+		--color-state-hover: var(--delta-lightness-hover-state);
+		--color-state-active: var(--delta-lightness-active-state);
+		--color-state-visited: var(--delta-lightness-visited-state);
+		@ebsa-color-neutral-dark: 0 0 0;
+		@ebsa-color-neutral-light: 1 0 0;  
+		--delta-lightness-hover-state: calc( var( --delta-lightness-state-base ) * 1 );
+		--delta-lightness-active-state: calc( var( --delta-lightness-state-base ) * -1 );
   --delta-lightness-visited-state: calc( var( --delta-lightness-state-base ) * -2 );
   --delta-lightness-state-base: 4%; 
-// Hover and active states are calculated by a modifier of the lightness value (e.g. hover: +2%, active: -2%)
 	
-
-	--delta-lightness-surface-base: -2%;
+	--delta-lightness-surface-base-light: calc( var( --delta-lightness-surface-base-light ) * -1 );
+	--delta-lightness-surface-base-dark: calc( var( --delta-lightness-surface-base-light ) * -1 );
 
 	// Progressive color
 	--color-progressive-oklch__l: 53.25%;
@@ -16,11 +19,13 @@
 	--color-progressive-oklch__h: 262.29;
 
 	// Surface color
-	--color-surface-0-oklch__l: 96%;
-	--color-surface-0-oklch__c: 0.01;
-	--color-surface-0-oklch__h: 262.29;
-	
-	--color-base-oklch__h: 262.29;
+	--color-surface-0-light-oklch__l: 96%;
+	--color-surface-0-light-oklch__c: 0.01;
+	--color-surface-0-light-oklch__h: 262.29;
+		
+	--color-surface-0-dark-oklch__l: 4%;
+	--color-surface-0-dark-oklch__c: 0.01;
+	--color-surface-0-dark-oklch__h: 262.29;
 
 	/* Replace variables with Tailwind-style token system */
 	--color-emphasized: ~'var(--@{color-foreground}-@{color-emphasized-strength})';
@@ -29,29 +34,30 @@
 	--color-placeholder: ~'var(--@{color-foreground}-@{color-placeholder-strength})';
 	--color-disabled: ~'var(--@{color-foreground}-@{color-disabled-strength})';
 	
-  &.skin-theme-clientpref-night,
-  &.prefers-color-scheme-dark.skin-theme-clientpref-os {
-	--color-base-oklch__l: 80%;
-	--color-base-oklch__c: 0.05;
-	  
+&-night() {
+	--delta-lightness-surface-base: var( --delta-lightness-surface-base-dark );
+	--ebsa-color-surface-0: ~"oklch( var( --color-surface-0-dark-oklch__l ) var( --color-surface-0-dark-oklch__c ) var( --color-surface-0-dark-oklch__h ) )";
+	
 	@color-foreground: ~'tailwind-neutral';
 	@color-base-strength: 200;
 	@color-emphasized-strength: 50;	   
 	@color-subtle-strength: 400;
 	@color-placeholder-strength: 500;
 	@color-disabled-strength: 600;
-	  
+	
 	--color-destructive: oklch(0.635 0.254 15.458);
 	--color-warning: oklch(0.683 0.129 175.062);
 	--color-success: oklch(0.886 0.17 93.726);
-    --ebsa-color-neutral-base: var(--ebsa-color-neutral-base-light);
-    --ebsa-color-neutral-base-inverted: var(--ebsa-color-neutral-base-dark);
-    --ebsa-color-neutral: ~"oklch( var(--ebsa-color-neutral-base) / 1 )";
-    --ebsa-color-neutral-inverted: ~"oklch( var(--ebsa-color-neutral-base-inverted) / 1 )";
+	
+    --ebsa-color-neutral-base: @{ebsa-color-neutral-light};
+    --ebsa-color-neutral-base-inverted: @{ebsa-color-neutral-dark};
+    --ebsa-color-neutral: ~"oklch( @{ebsa-color-neutral-base} / 1.0 )";
+    --ebsa-color-neutral-inverted: ~"oklch( @{ebsa-color-neutral-base-inverted} / 1.0 )";
   }
 
-  &.skin-theme-clientpref-day,
-  &.prefers-color-scheme-light.skin-theme-clientpref-os {
+&-day() {
+	--delta-lightness-surface-base: var( --delta-lightness-surface-base-light );
+	--ebsa-color-surface-0: ~"oklch( var( --color-surface-0-light-oklch__l ) var( --color-surface-0-light-oklch__c ) var( --color-surface-0-light-oklch__h ) )";
 	@color-foreground: ~'tailwind-neutral';
 	@color-base-strength: 900;
 	@color-emphasized-strength: 600;	   
@@ -61,10 +67,10 @@
     --color-destructive: oklch(0.537 0.215 14.845);
     --color-warning: oklch(0.732 0.15 90.688);
     --color-success: oklch(0.407 0.076 176.321);
-    --ebsa-color-neutral-base: var(--ebsa-color-neutral-base-dark);
-    --ebsa-color-neutral-base-inverted: var(--ebsa-color-neutral-base-light);
-    --ebsa-color-neutral: ~"oklch( var( --ebsa-color-neutral-base ) / 1 )";
-    --ebsa-color-neutral-inverted: ~"oklch( var( --ebsa-color-neutral-base-inverted ) / 1 )";
+    @ebsa-color-neutral-base: @{ebsa-color-neutral-dark};
+    @ebsa-color-neutral-base-inverted: @{ebsa-color-neutral-light};
+    --ebsa-color-neutral: ~"oklch( var( @{ebsa-color-neutral-base} ) / 1.0 )";
+    --ebsa-color-neutral-inverted: ~"oklch( @{ebsa-color-neutral-base-inverted} / 1.0 )";
   }
 
   /* Convert hover & active states to relative colors */
@@ -73,7 +79,7 @@
   --color-progressive--active: ~"oklch( from var( --color-progressive ) calc( l + var( --color-state-active ) ) c h )";
   --color-destructive--hover: ~'oklch( from var( --color-destructive ) calc( l + var( --color-state-hover ) ) c h';
   --color-destructive--active: ~'oklch( from var( --color-destructive ) calc( l + var( --color-state-active ) ) c h';
-  --background-color-destructive-subtle: ~'color-mix( in oklch, var( --color-destructive ) 6%, var( --ebsa-color-neutral ) )';
+  --background-color-destructive-subtle: ~'color-mix( in oklch, var( --color-destructive ) var( --background-subtle-color-primary ), var( --ebsa-color-neutral ) )';
   --background-color-progressive-subtle: ~'color-mix( in oklch, var( --color-progressive ) 6%, var( --ebsa-color-neutral ) )';
   --background-color-warning-subtle: ~'color-mix( in oklch, var( --color-warning ) 6%, var( --ebsa-color-neutral ) )';
   --background-color-success-subtle: ~'color-mix( in oklch, var( --color-success ) 6%, var( --ebsa-color-neutral ) )';
@@ -98,68 +104,15 @@
   --box-shadow-color-destructive--focus: var(--color-progressive--focus);
   --background-color-progressive--focus: var(--color-progressive--focus);
 
-  --color-mix-setup: ~"color-mix( in oklch, var( --color-progressive ) 6%, var( --color-neutral-base ) )";
-  --border-color-table: ~"color-mix(in oklch var( --color-surface-0 ) var( --border-color-table-primary ), oklch( var( --color-neutral-base ) ) var( --border-color-table-secondary ) )";
-  --border-divider: var(--border-width-base) var(--border-style-base)
-    var(--border-color-divider);
-  --border-color-table-primary: 65%;
-  --border-color-table-secondary: 35%;
-  --color-state-hover: var(--delta-lightness-hover-state);
-  --color-state-active: var(--delta-lightness-active-state);
-  --color-state-visited: var(--delta-lightness-visited-state);
-
-  --color-surface-lighten-base: var(--delta-lightness-surface-base);
-  --color-surface-lighten-1: calc(1 * var(--delta-lightness-surface-base));
-  --color-surface-lighten-2: calc(2 * var(--delta-lightness-surface-base));
-  --color-surface-lighten-3: calc(3 * var(--delta-lightness-surface-base));
-  --color-surface-lighten-4: calc(4 * var(--delta-lightness-surface-base));
-  --color-surface-lighten-5: calc(5 * var(--delta-lightness-surface-base));
+  --border-color-table: ~"color-mix(in oklch, var( --border-color-table-primary, var ( --color-surface-0 ) ) var( --border-color-table-primary-length ), oklch( var( --border-color-table-secondary, var( --border-color-table-secondary-length ) )";
+  --border-color-table-primary-length: 65%%;
+  --border-color-table-secondary-length: 35%;
 	
-  --ebsa-color-surface-0--hover: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-state-hover ) c h )";
-  --ebsa-color-surface-0--active: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-state-active ) ) c h )";
-  --ebsa-color-surface-1: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-surface-lighten-1 ) ) calc( c * 1.5 ) h )";
-  --ebsa-color-surface-1--hover: ~"oklch( from var( --color-surface-1 ) calc( l + var( --color-state-hover ) ) c h )";
-  --ebsa-color-surface-1--active: ~"oklch( from var( --color-surface-1 ) calc( l + var( --color-state-active ) ) c h )";
-  --ebsa-color-surface-2: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-surface-lighten-2 ) ) calc( c * 2 ) h )";
-  --ebsa-color-surface-2--hover: ~"oklch( from var( --color-surface-2 ) calc( l + var( --color-state-hover ) ) c h )";
-  --ebsa-color-surface-2--active: ~"oklch( from var( --color-surface-2 ) calc( l + var( --color-state-active ) ) c h )";
-  --ebsa-color-surface-3: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-surface-lighten-3 ) ) calc( c * 3 ) h )";
-  --ebsa-color-surface-3--hover: ~"oklch( from var( --color-surface-3 ) calc( l + var( --color-state-hover ) ) c h )";
-  --ebsa-color-surface-3--active: ~"oklch( from var( --color-surface-3 ) calc( l + var( --color-state-active ) ) c h )";
-  --ebsa-color-surface-4: ~"oklch( from var( --color-surface-0 ) calc( l +  var( --color-surface-lighten-4 ) ) calc( c * 4 ) h )";
-  --ebsa-color-surface-4--hover: ~"oklch( from var( --color-surface-4 ) calc( l + var( --color-state-hover ) ) c h )";
-  --ebsa-color-surface-4--active: ~"oklch( from var( --color-surface-4 ) calc( l + var( --color-state-active ) ) c h )";
-  --ebsa-color-surface-5: ~"oklch( from var( --color-surface-0 ) calc( l + var( --color-surface-lighten-5 ) ) calc( c * 5 ) h )";
-  --ebsa-color-surface-5--hover: ~"oklch( from var( --color-surface-5 ) calc( l + var( --color-state-hover ) ) c h )";
-  --ebsa-color-surface-5--active: ~"oklch( from var( --color-surface-5 ) calc( l + var( --color-state-active ) ) c h )";
-
-  --background-color-backdrop-light: ~"oklch( var( --color-surface-0-oklch__l ) var( --color-surface-0-oklch__c ) var( --color-surface-0-oklch__h ) / var( --backdrop-opacity ) )";
-
-  --color-surface-0: ~"oklch( var( --color-surface-0-oklch__l ) var( --color-surface-0-oklch__c ) var( --color-surface-0-oklch__h ) )";
-  --color-surface-1: var(--ebsa-color-surface-1);
-  --color-surface-2: var(--ebsa-color-surface-2);
-  --color-surface-3: var(--ebsa-color-surface-3);
-  --color-surface-4: var(--ebsa-color-surface-4);
-  --color-surface-5: var(--ebsa-color-surface-5);
-
-  --color-surface-0--hover: var(--ebsa-color-surface-0--hover);
-  --color-surface-1--hover: var(--ebsa-color-surface-1--hover);
-  --color-surface-2--hover: var(--ebsa-color-surface-2--hover);
-  --color-surface-3--hover: var(--ebsa-color-surface-3--hover);
-  --color-surface-4--hover: var(--ebsa-color-surface-4--hover);
-  --color-surface-5--hover: var(--ebsa-color-surface-5--hover);
-
-  --color-surface-0--active: var(--ebsa-color-surface-0--active);
-  --color-surface-1--active: var(--ebsa-color-surface-1--active);
-  --color-surface-2--active: var(--ebsa-color-surface-2--active);
-  --color-surface-3--active: var(--ebsa-color-surface-3--active);
-  --color-surface-4--active: var(--ebsa-color-surface-4--active);
-  --color-surface-5--active: var(--ebsa-color-surface-5--active);
-
+  --background-color-backdrop-dark: ~'oklch( var( --color-surface-0-dark-oklch__l ) var( --color-surface-0-dark-oklch__c ) var( --color-surface-0-dark-oklch__h ) / var( --backdrop-opacity ) )";
+  --background-color-backdrop-light: ~'oklch( var( --color-surface-0-light-oklch__l ) var( --color-surface-0-light-oklch__c ) var( --color-surface-0-light-oklch__h ) / var( --backdrop-opacity ) )";
+		
   /* Tokens disabled by Citizen, reenabled experimentally */
   --border-color-interactive--hover: var(--border-color-progressive--hover);
   --border-color-interactive--active: var(--border-color-progressive--active);
   --border-color-error--active: var(--color-error--active);
-
-
 }
