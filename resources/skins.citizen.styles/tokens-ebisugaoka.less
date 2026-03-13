@@ -20,9 +20,6 @@
 	--color-surface-0-oklch__c: 0.01;
 	--color-surface-0-oklch__h: 262.29;
 	
-
-	--color-base-oklch__l: 20%;
-	--color-base-oklch__c: 0.1;
 	--color-base-oklch__h: 262.29;
 	
 
@@ -31,10 +28,13 @@
 	
   &.skin-theme-clientpref-night,
   &.prefers-color-scheme-dark.skin-theme-clientpref-os {
-		--color-emphasized: oklch(from var( --color-base ) calc( l / 4 ) calc( c * .075 ) h );
-	--color-subtle: oklch(from var( --color-base ) calc( l * 1.75 ) calc( c * 1.125 ) h );
-	--color-placeholder: oklch(from var( --color-base ) calc( l * 2 ) calc( c * .075 ) h );
-	--color-disabled: oklch(from var( --color-base ) calc( l / 3 ) calc( c * .05 ) h );
+	--color-base-oklch__l: 80%;
+	--color-base-oklch__c: 0.05;
+	  
+	--color-emphasized: oklch(from var( --color-base ) calc( l * 1.75 ) calc( c * .625 ) h );
+	--color-subtle: oklch(from var( --color-base ) calc( l * 0.88 ) calc( c * 1.4 ) h );
+	--color-placeholder: oklch(from var( --color-base ) calc( l * 0.75 ) calc( c * .625 ) h );
+	--color-disabled: oklch(from var( --color-base ) calc( l * .63 ) calc( c * .2 ) h );
 	--color-destructive: oklch(0.635 0.254 15.458);
 	--color-warning: oklch(0.683 0.129 175.062);
 	--color-success: oklch(0.886 0.17 93.726);
@@ -46,7 +46,9 @@
 
   &.skin-theme-clientpref-day,
   &.prefers-color-scheme-light.skin-theme-clientpref-os {
-	  		--color-emphasized: oklch(from var( --color-base ) calc( l / 4 ) calc( c * .075 ) h );
+	--color-base-oklch__l: 20%;
+	--color-base-oklch__c: 0.1;
+	--color-emphasized: oklch(from var( --color-base ) calc( l / 4 ) calc( c * .075 ) h );
 	--color-subtle: oklch(from var( --color-base ) calc( l * 1.75 ) calc( c * 1.125 ) h );
 	--color-placeholder: oklch(from var( --color-base ) calc( l * 2 ) calc( c * .075 ) h );
 	--color-disabled: oklch(from var( --color-base ) calc( l / 3 ) calc( c * .05 ) h );
@@ -79,8 +81,7 @@
   --color-placeholder: ~"oklch( var( --color-placeholder-oklch__l ) var( --color-placeholder-oklch__c ) var( --color-base-oklch__h ) )";
   --color-disabled: ~"oklch( var( --color-disabled-oklch__l ) var( --color-disabled-oklch__c ) var( --color-base-oklch__h ) )";
 
-  /* Semantic token changed */
-
+  /* Semantic token changes */
   --box-shadow-color-progressive--focus: var(--color-progressive--focus);
   --box-shadow-color-destructive--focus: var(--color-progressive--focus);
   --background-color-progressive--focus: var(--color-progressive--focus);
