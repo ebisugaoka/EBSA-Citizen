@@ -65,6 +65,12 @@
   --color-base--hover: ~"oklch( from var( --color-base ) calc( l + var( --color-state-hover ) ) c h )";
   --color-progressive--hover: ~"oklch( from var( --color-progressive ) calc( l + var( --color-state-hover ) ) c h )";
   --color-progressive--active: ~"oklch( from var( --color-progressive ) calc( l + var( --color-state-active ) ) c h )";
+  --color-destructive--hover: ~'oklch( from var( --color-destructive ) calc( l + var( --color-state-hover ) ) c h';
+	--color-destructive--active: ~'oklch( from var( --color-destructive ) calc( l + var( --color-state-active ) ) c h';
+	--background-color-destructive-subtle: ~'color-mix( in oklch, var( --color-destructive ) 6%, var( --ebsa-color-neutral ) )';
+	--background-color-progressive-subtle: ~'color-mix( in oklch, var( --color-progressive ) 6%, var( --ebsa-color-neutral ) )';
+	--background-color-warning-subtle: ~'color-mix( in oklch, var( --color-warning ) 6%, var( --ebsa-color-neutral ) )';
+	--background-color-success-subtle: ~'color-mix( in oklch, var( --color-success ) 6%, var( --ebsa-color-neutral ) )';
 
   /* Icon opacity */
   --opacity-icon-base: 1;
@@ -148,4 +154,6 @@
   --border-color-interactive--hover: var(--border-color-progressive--hover);
   --border-color-interactive--active: var(--border-color-progressive--active);
   --border-color-error--active: var(--color-error--active);
+
+
 }
