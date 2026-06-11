@@ -8,9 +8,7 @@
  * TODO: Use CSS relative color syntax when supported in all browsers.
  */
 :root {
-	// Border
-	--border-radius-medium: calc( var( --border-radius-base ) * 2 );
-	--border-radius-large: calc( var( --border-radius-base ) * 3 );
+
 
 	// Box shadow
 	--box-shadow-border: var( --border-color-base ) 0 0 0 1px;
@@ -97,23 +95,50 @@
 	// Codex Design Tokens but not included as CSS variables
 	--border-base: var( --border-width-base ) solid var( --border-color-base );
 	--border-subtle: var( --border-width-base ) solid var( --border-color-subtle );
+	
 	--border-width-base: 1px;
-	--border-width-thick: 2px;
+
+	--border-width-none: 0;
+	--border-width-thin: calc( var( --border-width-base ) * 1 );
+	--border-width-thick: calc( var( --border-width-base ) * 2 );
+	--border-width-thicker: calc( var( --border-width-base ) * 3 );
+	--border-width-thickest: calc( var( --border-width-base ) * 4 );
+
+	
 	--border-radius-base: 4px;
+	--border-radius-small: calc( var( --border-radius-base ) * 1 );
+	--border-radius-medium: calc( var( --border-radius-base ) * 2 );
+	--border-radius-large: calc( var( --border-radius-base ) * 3 );
+	--border-radius-x-large: calc( var( --border-radius-base ) * 4 );
+	--border-radius-xx-large: calc( var( --border-radius-base ) * 5 );
+	
 	--border-radius-sharp: 0;
 	--border-radius-pill: 9999px;
 	--border-radius-circle: 50%;
-	--box-shadow-small: 0 0 0 1px var( --border-color-base );
+
 	// @see https://www.joshwcomeau.com/shadow-palette
+	--box-shadow-small: 0 0 0 1px var( --border-color-base );
 	--box-shadow-medium: 0 0.5px 0.6px var( --box-shadow-color-alpha-base ), 0 1.6px 1.8px -0.8px var( --box-shadow-color-alpha-base ), 0 4px 4.5px -1.7px var( --box-shadow-color-alpha-base ), 0 9.8px 11px -2.5px var( --box-shadow-color-alpha-base );
 	--box-shadow-large: 0 0.5px 0.6px var( --box-shadow-color-alpha-base ), 0 2.8px 3.1px -0.4px var( --box-shadow-color-alpha-base ), 0 5.3px 6px -0.7px var( --box-shadow-color-alpha-base ), 0 8.7px 9.8px -1.1px var( --box-shadow-color-alpha-base ), 0 13.9px 15.6px -1.4px var( --box-shadow-color-alpha-base ), 0 21.8px 24.5px -1.8px var( --box-shadow-color-alpha-base );
+	
 	--font-family-base: @font-family-base;
 	--font-family-serif: @font-family-serif;
 	--font-family-monospace: @font-family-monospace;
-	--font-weight-normal: 400;
-	--font-weight-medium: calc( var( --font-weight-normal ) + 100 );
-	--font-weight-semi-bold: calc( var( --font-weight-normal ) + 200 );
-	--font-weight-bold: calc( var( --font-weight-normal ) + 300 );
+	
+	--font-weight-base: 400;
+
+	
+	--font-weight-hairline: calc( var( --font-weight-base ) * .25 );
+	--font-weight-thin: calc( var( --font-weight-base ) * .5);
+	--font-weight-light: calc( var( --font-weight-base ) * .75 );
+	--font-weight-medium: calc( var( --font-weight-base ) * 1 );
+	--font-weight-medium: calc( var( --font-weight-base ) * 1.25 );
+	--font-weight-semi-bold: calc( var( --font-weight-base ) * 1.5 );
+	--font-weight-bold: calc( var( --font-weight-base ) * 1.75 );
+	--font-weight-heavy: calc( var( --font-weight-base ) * 2 );
+	--font-weight-medium: calc( var( --font-weight-base ) * 2.25 );
+
+	/* overline styles */
 	--font-family-overline: var( --font-family-base );
 	--font-weight-overline: var( --font-weight-medium );
 	--font-size-overline: var( --font-size-small );
@@ -130,11 +155,27 @@
 	}
 
 	@media ( prefers-contrast: more ) {
-		--font-weight-normal: 500;
+		--font-weight-hairline: calc( var( --font-weight-base ) * .375 );
+		--font-weight-thin: calc( var( --font-weight-base ) * .625);
+		--font-weight-light: calc( var( --font-weight-base ) * .875 );
+		--font-weight-normal: calc( var( --font-weight-base ) * 1.125 );
+		--font-weight-medium: calc( var( --font-weight-base ) * 1.375 );
+		--font-weight-semi-bold: calc( var( --font-weight-base ) * 1.625 );
+		--font-weight-bold: calc( var( --font-weight-base ) * 1.875 );
+		--font-weight-heavy: calc( var( --font-weight-base ) * 2.125 );
+		--font-weight-medium: calc( var( --font-weight-base ) * 2.250 );
 	}
 
 	@media ( prefers-contrast: less ) {
-		--font-weight-normal: 300;
+		--font-weight-hairline: calc( var( --font-weight-base ) * .25 );
+		--font-weight-thin: calc( var( --font-weight-base ) * .375);
+		--font-weight-light: calc( var( --font-weight-base ) * .625 );
+		--font-weight-normal: calc( var( --font-weight-base ) * .875 );
+		--font-weight-medium: calc( var( --font-weight-base ) * 1.125 );
+		--font-weight-semi-bold: calc( var( --font-weight-base ) * 1.375 );
+		--font-weight-bold: calc( var( --font-weight-base ) * 1.635 );
+		--font-weight-heavy: calc( var( --font-weight-base ) * 1.875 );
+		--font-weight-medium: calc( var( --font-weight-base ) * 2.125 );
 	}
 
 	// Card open animation — page-level direction cascade.
