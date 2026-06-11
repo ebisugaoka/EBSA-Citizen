@@ -1,11 +1,12 @@
-@import (reference) "https://ebisugaoka.com/assets/styles/codex-icon-tokens.less";
+@citizen-ui-icon-configure: url(https://ebisugaoka.com/resources/lib/codex-icons/images/configure.svg);
+@citizen-ui-icon-arrow-up: url(https://ebisugaoka.com/resources/lib/codex-icons/images/arrowUp.svg);
 
 .mw-ui-icon-wikimedia-configure::before {
-	-webkit-mask-image: url(@{cdx-ui-icon-configure});
-	mask-image: url(@{cdx-ui-icon-configure});
+	-webkit-mask-image: @citizen-ui-icon-configure;
+	mask-image: @citizen-ui-icon-configure;
 }
 
 .mw-ui-icon-wikimedia-arrowUp::before {
-	-webkit-mask-image: url(@{cdx-ui-icon-arrow-up});
-mask-image: url(@{cdx-ui-icon-arrow-up});
+	-webkit-mask-image: @citizen-ui-icon-arrow-up;
+mask-image: @citizen-ui-icon-arrow-up;
 }
