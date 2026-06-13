@@ -1,19 +1,23 @@
 .acheomatic-color-tokens() {
-    --color-achromatic-light-base: 1 0 0;
-    --color-achromatic-light-alpha: 1;
-    --color-achromatic-dark-base: 0 0 0;
-    --color-achromatic-dark-alpha: 1;
-    --color-achromatic-base: light-dark( var( --color-achromatic-dark-base ), var( --color-achromatic-light-base )  );
-    --color-white: oklch( var( --color-achromatic-light-base ) / var( --color-achromatic-light-alpha ) );
-    --color-black: oklch( var( --color-achromatic-dark-base ) / var( --color-achromatic-dark-alpha ) );
-    --color-achromatic: light-dark( oklch( var( --color-achromatic-dark-base ) / var( --color-achromatic-dark-alpha ) ), oklch( var( --color-achromatic-light-base ) / var( --color-achromatic-light-alpha ) ) );
-    --color-transparency-base: var( --color-achromatic-base );
-    --color-transparency-light: var( --color-achromatic-dark-base );
-    --color-transparency-light: var( --color-achromatic-light-base );
+    @color-achromatic-light-base: 1 0 0;
+    @color-achromatic-dark-base: 0 0 0;
+	
+    --color-achromatic-base: light-dark( @color-achromatic-dark-base, @color-achromatic-light-base );
     
+	--color-white: oklch( @color-achromatic-light-base / 1 );
+    --color-black: oklch( @color-achromatic-dark-base / 1 );
+    
+	--color-achromatic: light-dark( oklch( var( --color-achromatic-light-base ) / 1 ), oklch( var( --color-achromatic-dark-base ) / 1 ) );
+    
+	--color-transparency-base: light-dark( var( --color-transparency-dark-base ), var( --color-transparency-light-base ) );
+    
+    --color-transparency-light-base: var( --color-achromatic-light-base );
+	--color-transparency-medium-base: color-mix(in oklch, oklch( var( --color-transparency-light-base ) ), oklch( var( --color-transparency-dark-base ) ) );
+	--color-transparency-dark-base: var( --color-achromatic-dark-base );
+	
     --color-transparency-light-50: oklch( var( --color-transparency-light-base ) / 0.05 );
     --color-transparency-light-100: oklch( var( --color-transparency-light-base ) / 0.1 );
-    --color-transparency-lighta200: oklch( var( --color-transparency-light-base ) / 0.2 );
+    --color-transparency-light-200: oklch( var( --color-transparency-light-base ) / 0.2 );
     --color-transparency-light-300: oklch( var( --color-transparency-light-base ) / 0.3 );
     --color-transparency-light-400: oklch( var( --color-transparency-light-base ) / 0.4 );
     --color-transparency-light-500: oklch( var( --color-transparency-light-base ) / 0.5 );
@@ -22,12 +26,22 @@
     --color-transparency-light-800: oklch( var( --color-transparency-light-base ) / 0.8 );
     --color-transparency-light-900: oklch( var( --color-transparency-light-base ) / 0.9 );
     --color-transparency-light-950: oklch( var( --color-transparency-light-base ) / 0.95 );
-    --color-transparency-light-1000: oklch( var( --color-transparency-light-base ) / 1 );
-    
-    
+
+	--color-transparency-medium-50: oklch( var( --color-transparency-medium-base ) / 0.05 );
+    --color-transparency-medium-100: oklch( var( --color-transparency-medium-base ) / 0.1 );
+    --color-transparency-medium-200: oklch( var( --color-transparency-medium-base ) / 0.2 );
+    --color-transparency-medium-300: oklch( var( --color-transparency-medium-base ) / 0.3 );
+    --color-transparency-medium-400: oklch( var( --color-transparency-medium-base ) / 0.4 );
+    --color-transparency-medium-500: oklch( var( --color-transparency-medium-base ) / 0.5 );
+    --color-transparency-medium-600: oklch( var( --color-transparency-medium-base ) / 0.6 );
+    --color-transparency-medium-700: oklch( var( --color-transparency-medium-base ) / 0.7 );
+    --color-transparency-medium-800: oklch( var( --color-transparency-medium-base ) / 0.8 );
+    --color-transparency-medium-900: oklch( var( --color-transparency-medium-base ) / 0.9 );
+    --color-transparency-medium-950: oklch( var( --color-transparency-medium-base ) / 0.95 );
+
     --color-transparency-dark-50: oklch( var( --color-transparency-dark-base ) / 0.05 );
     --color-transparency-dark-100: oklch( var( --color-transparency-dark-base ) / 0.1 );
-    --color-transparency-darka200: oklch( var( --color-transparency-dark-base ) / 0.2 );
+    --color-transparency-dark-200: oklch( var( --color-transparency-dark-base ) / 0.2 );
     --color-transparency-dark-300: oklch( var( --color-transparency-dark-base ) / 0.3 );
     --color-transparency-dark-400: oklch( var( --color-transparency-dark-base ) / 0.4 );
     --color-transparency-dark-500: oklch( var( --color-transparency-dark-base ) / 0.5 );
@@ -36,19 +50,16 @@
     --color-transparency-dark-800: oklch( var( --color-transparency-dark-base ) / 0.8 );
     --color-transparency-dark-900: oklch( var( --color-transparency-dark-base ) / 0.9 );
     --color-transparency-dark-950: oklch( var( --color-transparency-dark-base ) / 0.95 );
-    --color-transparency-dark-1000: oklch( var( --color-transparency-dark-base ) / 1 );
     
-    
-    --color-transparency-50: oklch( var( --color-transparency-base ) / 0.05 );
-    --color-transparency-100: oklch( var( --color-transparency-base ) / 0.1 );
-    --color-transparency-200: oklch( var( --color-transparency-base ) / 0.2 );
-    --color-transparency-300: oklch( var( --color-transparency-base ) / 0.3 );
-    --color-transparency-400: oklch( var( --color-transparency-base ) / 0.4 );
-    --color-transparency-500: oklch( var( --color-transparency-base ) / 0.5 );
-    --color-transparency-600: oklch( var( --color-transparency-base ) / 0.6 );
-    --color-transparency-700: oklch( var( --color-transparency-base ) / 0.7 );
-    --color-transparency-800: oklch( var( --color-transparency-base ) / 0.8 );
-    --color-transparency-900: oklch( var( --color-transparency-base ) / 0.9 );
-    --color-transparency-950: oklch( var( --color-transparency-base ) / 0.95 );
-    --color-transparency-1000: oklch( var( --color-transparency-base ) / 1 );
+    --color-transparency-50: light-dark( var( --color-transparency-light-50 ), var( --color-transparency-dark-50 ) );
+    --color-transparency-100: light-dark( var( --color-transparency-light-100 ), var( --color-transparency-dark-100 ) );
+    --color-transparency-200: light-dark( var( --color-transparency-light-200 ), var( --color-transparency-dark-200 ) );
+    --color-transparency-300: light-dark( var( --color-transparency-light-300 ), var( --color-transparency-dark-300 ) );
+    --color-transparency-400: light-dark( var( --color-transparency-light-400 ), var( --color-transparency-dark-400 ) );
+    --color-transparency-500: light-dark( var( --color-transparency-light-500 ), var( --color-transparency-dark-500 ) );
+    --color-transparency-600: light-dark( var( --color-transparency-light-600 ), var( --color-transparency-dark-600 ) );
+    --color-transparency-700: light-dark( var( --color-transparency-light-700 ), var( --color-transparency-dark-700 ) );
+    --color-transparency-800: light-dark( var( --color-transparency-light-800 ), var( --color-transparency-dark-800 ) );
+    --color-transparency-900: light-dark( var( --color-transparency-light-900 ), var( --color-transparency-dark-900 ) );
+    --color-transparency-950: light-dark( var( --color-transparency-light-950 ), var( --color-transparency-dark-950 ) );
 }
