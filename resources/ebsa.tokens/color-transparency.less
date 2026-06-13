@@ -5,12 +5,16 @@
   --color-white: oklch(@color-channels-light);
   --color-black: oklch(@color-channels-dark);
   --color-achromatic: light-dark(
-    oklch(@color-channels-light),
-    oklch(@color-channels-dark)
+    oklch(@color-channels-dark),
+    oklch(@color-channels-light)
   );
   --color-achromatic-inverted: light-dark(
     oklch(@color-channels-dark),
     oklch(@color-channels-light)
+  );
+  --color-achromatic-fixed: light-dark(
+    oklch(@color-channels-light),
+    oklch(@color-channels-dark)
   );
 
   --color-transparency-light-50: oklch(@color-channels-light / 0.05);
