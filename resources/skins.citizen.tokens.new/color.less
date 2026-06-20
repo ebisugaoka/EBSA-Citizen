@@ -20,6 +20,7 @@
 		--color-notice: light-dark( var( --color-neutral-700 ), var( --color-neutral-400 ) );
 		--color-inverted: light-dark( var( --color-white ), var( --color-neutral-1000 ) );
 		--color-inverted-fixed: var( --color-white );
+		
 		// Citizen extension — used as foreground on filled progressive
 		// surfaces (where Codex would otherwise use --color-inverted).
 		--color-inverted-primary: var( --color-white );
@@ -32,26 +33,28 @@
 		// versions ARE theme-variant.
 		--color-progressive--focus: var( --color-primary-700 );
 
+		// Visited state
+		--color-visited: var( --color-progressive );
+		--color-visited--hover: var( --color-progressive--hover );
+		--color-visited--active: var( --color-progressive--active );
+
 		// Destructive / state text
 		--color-destructive: light-dark( var( --color-red-700 ), var( --color-red-400 ) );
 		--color-destructive--hover: light-dark( var( --color-red-800 ), var( --color-red-300 ) );
 		--color-destructive--active: light-dark( var( --color-red-900 ), var( --color-red-200 ) );
 		--color-destructive--focus: var( --color-progressive--focus );
+		--color-destructive--visited: var( --color-destructive );
+		--color-destructive--visited--hover: var( --color-destructive--hover );
+		--color-destructive--visited--active: var( --color-destructive--active );
+		
 		--color-error: var( --color-destructive );
 		--color-error--hover: var( --color-destructive--hover );
 		--color-error--active: var( --color-destructive--active );
 		--color-warning: light-dark( var( --color-yellow-700 ), var( --color-yellow-400 ) );
 		--color-success: light-dark( var( --color-green-700 ), var( --color-green-400 ) );
 
-		// Visited / diff — Citizen routes through the progressive accent
-		// and MW diff convention (green added, red removed) instead of
-		// Codex's purple/maroon and -999 highlight stops.
-		--color-visited: var( --color-progressive );
-		--color-visited--hover: var( --color-progressive--hover );
-		--color-visited--active: var( --color-progressive--active );
-		--color-destructive--visited: var( --color-destructive );
-		--color-destructive--visited--hover: var( --color-destructive--hover );
-		--color-destructive--visited--active: var( --color-destructive--active );
+
+		
 		--color-content-added: var( --color-success );
 		--color-content-removed: var( --color-destructive );
 
@@ -63,6 +66,7 @@
 		--color-link--visited: var( --color-visited );
 		--color-link--visited--hover: var( --color-visited--hover );
 		--color-link--visited--active: var( --color-visited--active );
+		
 		--color-link-red: var( --color-destructive );
 		--color-link-red--hover: var( --color-destructive--hover );
 		--color-link-red--active: var( --color-destructive--active );
@@ -70,6 +74,13 @@
 		--color-link-red--visited: var( --color-destructive--visited );
 		--color-link-red--visited--hover: var( --color-destructive--visited--hover );
 		--color-link-red--visited--active: var( --color-destructive--visited--active );
+		
+		--color-link-new: var( --color-link-red );
+		--color-link-new--visited: var( --color-link-red--visited );
+		
+		--color-link-external: var( --color-link );
+		--color-link-external--visited: var( --color-link--visited ); 
+		--color-link-external--active: var( --color-link-active );
 
 		// Icon
 		--color-icon-progressive: light-dark( var( --color-primary-700 ), var( --color-primary-500 ) );
