@@ -7,14 +7,32 @@
  */
 .new-surface() {
 	:root.citizen-token-new {
-		--color-surface-0: light-dark( var( --color-white ), var( --color-neutral-1000 ) );
+		--color-surface-0: light-dark( var( --color-white-50, var( --color-white ) ), var( --color-neutral-1000 ) );
+		--color-surface-0--hover: light-dark( var( --color-white-100, var( --color-white ) ), var( --color-neutral-900 ) );
+		--color-surface-0--active: light-dark( var( --color-white-200, var( --color-white ) ), var( --color-neutral-800 ) );
+		
 		--color-surface-1: light-dark( var( --color-neutral-50 ), var( --color-neutral-900 ) );
 		--color-surface-1--hover: light-dark( var( --color-neutral-100 ), var( --color-neutral-800 ) );
 		--color-surface-1--active: light-dark( var( --color-neutral-200 ), var( --color-neutral-700 ) );
+		
 		--color-surface-2: light-dark( var( --color-neutral-100 ), var( --color-neutral-800 ) );
 		--color-surface-2--hover: light-dark( var( --color-neutral-200 ), var( --color-neutral-700 ) );
 		--color-surface-2--active: light-dark( var( --color-neutral-300 ), var( --color-neutral-600 ) );
+		
 		--color-surface-3: light-dark( var( --color-neutral-200 ), var( --color-neutral-700 ) );
+		--color-surface-3--hover: light-dark( var( --color-neutral-300 ), var( --color-neutral-600 ) );
+		--color-surface-3--active: light-dark( var( --color-neutral-200 ), var( --color-neutral-500 ) );
+		
 		--color-surface-4: light-dark( var( --color-neutral-300 ), var( --color-neutral-600 ) );
+		--color-surface-4--hover: light-dark( var( --color-neutral-400 ), var( --color-neutral-500 ) );
+		--color-surface-4--active: light-dark( var( --color-neutral-500 ), var( --color-neutral-400 ) );
+		
+		--color-surface-5: light-dark( var( --color-neutral-400 ), var( --color-neutral-500 ) );
+		--color-surface-5--hover: light-dark( var( --color-neutral-500 ), var( --color-neutral-400 ) );
+		--color-surface-5--active: light-dark( var( --color-neutral-600 ), var( --color-neutral-300 ) );
+		
+		--color-surface-6: light-dark( var( --color-neutral-500 ), var( --color-neutral-400 ) );
+		--color-surface-6--hover: light-dark( var( --color-neutral-600 ), var( --color-neutral-300 ) );
+		--color-surface-6--active: light-dark( var( --color-neutral-700 ), var( --color-neutral-200 ) );
 	}
 }
