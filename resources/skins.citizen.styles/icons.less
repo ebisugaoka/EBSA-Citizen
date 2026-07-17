@@ -1,14 +1,11 @@
-@codex-icon-configure: ~'url( "https://ebisugaoka.com/resources/lib/codex-icons/images/configure.svg" )';
-@codex-icon-arrow-up: ~'url( "https://ebisugaoka.com/resources/lib/codex-icons/images/arrowUp.svg" )';
-
 // cdxIconConfigure is not available in older versions of Codex
 .mw-ui-icon-wikimedia-configure::before {
-	-webkit-mask-image: @{codex-icon-configure};
-	mask-image:  @{codex-icon-configure};
+	-webkit-mask-image: url( "https://ebisugaoka.com/resources/lib/codex-icons/images/configure.svg" );
+	mask-image: url( "https://ebisugaoka.com/resources/lib/codex-icons/images/configure.svg" );
 }
 
 // cdxIconArrowUp is not available in older versions of Codex
 .mw-ui-icon-wikimedia-arrowUp::before {
-	-webkit-mask-image: @{codex-icon-arrow-up};
-	mask-image: @{codex-icon-arrow-up};
+	-webkit-mask-image: url( "https://ebisugaoka.com/resources/lib/codex-icons/images/arrowUp.svg" );
+	mask-image: url( "https://ebisugaoka.com/resources/lib/codex-icons/images/arrowUp.svg" );
 }
