@@ -24,7 +24,6 @@
 	--color-progressive--hover: light-dark( var( --color-primary-800 ), var( --color-primary-300 ) );
 	--color-progressive--active: light-dark( var( --color-primary-900 ), var( --color-primary-200 ) );
 	--color-progressive--focus: var( --color-primary-700 );
-	--color-icon-progressive: light-dark( var( --color-primary-700 ), var( --color-primary-500 ) );
 	
 	// Destructive
 	--color-destructive: light-dark( var( --color-red-700 ), var( --color-red-400 ) );
@@ -41,6 +40,7 @@
 	--color-destructive--visited: var( --color-destructive );
 	--color-destructive--visited--hover: var( --color-destructive--hover );
 	--color-destructive--visited--active: var( --color-destructive--active );
+	
 	// States
 	--color-error: var( --color-destructive );
 	--color-error--hover: var( --color-destructive--hover );
@@ -48,11 +48,15 @@
 	--color-warning: light-dark( var( --color-yellow-700 ), var( --color-yellow-400 ) );
 	--color-success: light-dark( var( --color-green-700 ), var( --color-green-400 ) );
 	--color-notice: light-dark( var( --color-neutral-700 ), var( --color-neutral-400 ) );
+	
 	// Icons
 	--color-icon-error: var( --color-red-500 );
 	--color-icon-warning: var( --color-yellow-500 );
 	--color-icon-success: var( --color-green-500 );
 	--color-icon-notice: var( --color-neutral-500 );
+	--color-icon-progressive: light-dark( var( --color-primary-700 ), var( --color-primary-500 ) );
+
+	// Content status
 	--color-content-added: var( --color-success );
 	--color-content-removed: var( --color-destructive );
 
@@ -61,9 +65,11 @@
 	--color-link--hover: var( --color-progressive--hover );
 	--color-link--active: var( --color-progressive--active );
 	--color-link--focus: var( --color-progressive--focus );
+	
 	--color-link--visited: var( --color-visited );
 	--color-link--visited--hover: var( --color-visited--hover );
 	--color-link--visited--active: var( --color-visited--active );
+	
 	--color-link-red: var( --color-destructive );
 	--color-link-red--hover: var( --color-destructive--hover );
 	--color-link-red--active: var( --color-destructive--active );
@@ -72,6 +78,8 @@
 	--color-link-red--visited--hover: var( --color-destructive--visited--hover );
 	--color-link-red--visited--active: var( --color-destructive--visited--active );
 
+	/* DEPRECATED TOKENS */
+	--color-base--subtle: var( --color-subtle );
 }
 
 .new-color() {
