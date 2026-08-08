@@ -1,6 +1,6 @@
 {
 	"name": "Citizen",
-	"version": "3.19.0",
+	"version": "3.20.0",
 	"author": [
 		"[https://www.mediawiki.org/wiki/User:Alistair3149 Alistair3149]",
 		"[https://www.mediawiki.org/wiki/User:Octfx Octfx]",
@@ -38,7 +38,8 @@
 				"PermissionManager",
 				"UserGroupManager",
 				"UrlUtils",
-				"TempUserConfig"
+				"TempUserConfig",
+				"SpecialPageFactory"
 			],
 			"optional_services": [
 				"MobileFrontend.Context"
@@ -83,9 +84,12 @@
 						"citizen-jumptotop",
 						"citizen-languages-toggle",
 						"citizen-notifications-label",
+						"citizen-notifications-title",
+						"citizen-notifications-empty",
 						"citizen-notifications-error",
 						"citizen-notifications-retry",
 						"citizen-notifications-see-all",
+						"citizen-notifications-preferences",
 						"citizen-preferences-load-error",
 						"citizen-preferences-load-retry",
 						"citizen-preferences-toggle",
@@ -668,6 +672,7 @@
 					"callbackParam": [
 						"cdxIconCheckAll",
 						"cdxIconExpand",
+						"cdxIconHistory",
 						"cdxIconLinkExternal",
 						"cdxIconNext",
 						"cdxIconSettings"
@@ -678,11 +683,13 @@
 				"resources/skins.citizen.notifications/components/App.vue",
 				"resources/skins.citizen.notifications/components/NotificationList.vue",
 				"resources/skins.citizen.notifications/components/NotificationItem.vue",
-				"resources/skins.citizen.notifications/components/WikiList.vue"
+				"resources/skins.citizen.notifications/components/WikiList.vue",
+				"resources/skins.citizen.notifications/components/PanelFooter.vue"
 			],
 			"messages": [
 				"citizen-notifications-title",
 				"citizen-notifications-mark-all-read",
+				"citizen-notifications-clear-all",
 				"citizen-notifications-source-local",
 				"citizen-notifications-source-other",
 				"citizen-notifications-loading",
@@ -693,9 +700,6 @@
 				"citizen-notifications-retry",
 				"citizen-notifications-see-all",
 				"citizen-notifications-preferences"
-			],
-			"styles": [
-				"resources/skins.citizen.notifications/notifications.less"
 			]
 		},
 		"skins.citizen.notifications.codex": {
@@ -871,7 +875,7 @@
 			"+ext.srf.datatables.v2.format": "skinStyles/extensions/SemanticResultFormats/datatables/ext.srf.datatables.v2.format.less",
 			"+ext.srf.eventcalendar": "skinStyles/extensions/SemanticResultFormats/eventcalendar/ext.srf.eventcalendar.less",
 			"+ext.srf.filtered.calendar-view": "skinStyles/extensions/SemanticResultFormats/filtered/ext.srf.filtered.calendar-view.less",
-			"+ext.srf.filtered.distance-view": "skinStyles/extensions/SemanticResultFormats/filtered/ext.srf.filtered.distance-view.less",
+			"+ext.srf.filtered.distance-filter": "skinStyles/extensions/SemanticResultFormats/filtered/ext.srf.filtered.distance-filter.less",
 			"+ext.srf.filtered": "skinStyles/extensions/SemanticResultFormats/filtered/ext.srf.filtered.less",
 			"+ext.srf.filtered.map-view.leaflet": "skinStyles/lib/leaflet/leaflet.less",
 			"+ext.srf.filtered.number-filter": "skinStyles/extensions/SemanticResultFormats/filtered/ext.srf.filtered.number-filter.less",
@@ -895,7 +899,7 @@
 			"+ext.MWOAuth.styles": "skinStyles/extensions/OAuth/ext.MWOAuth.styles.less",
 			"+ext.srf.pagewidget.carousel": "skinStyles/extensions/SemanticResultFormats/pagewidget/ext.srf.pagewidget.carousel.less",
 			"+ext.srf.slideshow": "skinStyles/extensions/SemanticResultFormats/slideshow/ext.srf.slideshow.less",
-			"+ext.srf.smile.timeline.core": "skinStyles/extensions/SemanticResultFormats/timeline/ext.srf.smile.timeline.core.less",
+			"+ext.smile.timeline.core": "skinStyles/extensions/SemanticResultFormats/timeline/ext.smile.timeline.core.less",
 			"+ext.srf.util.grid": "skinStyles/extensions/SemanticResultFormats/util/ext.srf.util.grid.less",
 			"+ext.srf.styles": "skinStyles/extensions/SemanticResultFormats/ext.srf.styles.less",
 			"+onoi.dataTables.styles": "skinStyles/extensions/SemanticResultFormats/jquery/jquery.dataTables.less",
