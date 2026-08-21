@@ -13,21 +13,23 @@
  */
 .new-primitives-codex-decls() {
 	// ----- Achromatic -----
-	--color-white: #fff;
-	--color-black: #000;
+	@color-achromatic-base-light: ~'1 0 0';
+	@color-achromatic-base-dark: ~'0 0 0';
+	--color-white: oklch( @{color-achromatic-base-light} / var( --color-achromatic-alpha ) );
+	--color-black: oklch( @{color-achromatic-base-darky} / var( --color-achromatic-alpha ) );
 
 	// ----- Gray -----
-	--color-gray-50: #f8f9fa;
-	--color-gray-100: #eaecf0;
-	--color-gray-200: #dadde3;
-	--color-gray-300: #c8ccd1;
-	--color-gray-400: #a2a9b1;
-	--color-gray-500: #72777d;
-	--color-gray-600: #54595d;
-	--color-gray-700: #404244;
-	--color-gray-800: #27292d;
-	--color-gray-900: #202122;
-	--color-gray-1000: #101418;
+	--color-gray-50: var( --color-tw-taupe-50 );
+	--color-gray-100: var( --color-tw-taupe-100 );
+	--color-gray-200: var( --color-tw-taupe-200 );
+	--color-gray-300: var( --color-tw-taupe-300 );
+	--color-gray-400: var( --color-tw-taupe-400 );
+	--color-gray-500: var( --color-tw-taupe-500 );
+	--color-gray-600: var( --color-tw-taupe-600 );
+	--color-gray-700: var( --color-tw-taupe-700 );
+	--color-gray-800: var( --color-tw-taupe-800 );
+	--color-gray-900: var( --color-tw-taupe-900 );
+	--color-gray-1000: var( --color-tw-taupe-1000 );
 
 	// Chromatic -1000 stops are retuned to ~16% L (vs Codex ~26%)
 	// to sit ~5% L above Citizen's deeper neutral-1000 canvas,
